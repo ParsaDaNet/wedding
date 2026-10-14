@@ -19,6 +19,16 @@
   }
 }
 
+@layer utilities {
+  .font-calligraphy {
+    font-family: var(--font-calligraphy), cursive;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif), serif;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
