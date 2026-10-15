@@ -25,7 +25,7 @@ export default function RSVP() {
     minutes: 0,
     seconds: 0,
   });
-    
+
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -69,9 +69,14 @@ export default function RSVP() {
 
       <section className="rsvp-form-section" id="rsvp-form">
         <header className="rsvp-form-section__header">
-          <span className="rsvp-eyebrow">Yasaman &amp; Medhy&apos;s wedding</span>
+          <span className="rsvp-eyebrow">
+            Yasaman &amp; Medhy&apos;s wedding
+          </span>
           <h2>Add your details</h2>
-          <p>Please complete the form below using the details on your invitation.</p>
+          <p>
+            Please complete the form below using the details on your
+            invitation.
+          </p>
         </header>
 
         {submitted ? (
@@ -94,11 +99,20 @@ export default function RSVP() {
             <fieldset>
               <legend>Mark your attendance *</legend>
               <label className="rsvp-choice">
-                <input type="radio" name="attendance" value="accept" required />
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="accept"
+                  required
+                />
                 Accept with pleasure
               </label>
               <label className="rsvp-choice">
-                <input type="radio" name="attendance" value="decline" />
+                <input
+                  type="radio"
+                  name="attendance"
+                  value="decline"
+                />
                 Decline with regret
               </label>
             </fieldset>
@@ -106,11 +120,19 @@ export default function RSVP() {
             <div className="rsvp-form__row">
               <label>
                 First name *
-                <input name="firstName" autoComplete="given-name" required />
+                <input
+                  name="firstName"
+                  autoComplete="given-name"
+                  required
+                />
               </label>
               <label>
                 Last name *
-                <input name="lastName" autoComplete="family-name" required />
+                <input
+                  name="lastName"
+                  autoComplete="family-name"
+                  required
+                />
               </label>
             </div>
 
@@ -158,11 +180,19 @@ export default function RSVP() {
             <fieldset>
               <legend>I will be attending for *</legend>
               <label className="rsvp-choice">
-                <input type="checkbox" name="events" value="wedding" />
+                <input
+                  type="checkbox"
+                  name="events"
+                  value="wedding"
+                />
                 Saturday Wedding
               </label>
               <label className="rsvp-choice">
-                <input type="checkbox" name="events" value="brunch" />
+                <input
+                  type="checkbox"
+                  name="events"
+                  value="brunch"
+                />
                 Sunday Brunch
               </label>
             </fieldset>
@@ -174,13 +204,42 @@ export default function RSVP() {
             </label>
 
             <fieldset>
+              <legend>Will you be drinking alcohol? *</legend>
+              <label className="rsvp-choice">
+                <input
+                  type="radio"
+                  name="alcohol"
+                  value="yes"
+                  required
+                />
+                Yes, I will be drinking alcohol
+              </label>
+              <label className="rsvp-choice">
+                <input
+                  type="radio"
+                  name="alcohol"
+                  value="no"
+                />
+                No, I will not be drinking alcohol
+              </label>
+            </fieldset>
+
+            <fieldset>
               <legend>How do you plan to get to the wedding?</legend>
               <label className="rsvp-choice">
-                <input type="radio" name="weddingTransport" value="car" />
+                <input
+                  type="radio"
+                  name="weddingTransport"
+                  value="car"
+                />
                 With my own car
               </label>
               <label className="rsvp-choice">
-                <input type="radio" name="weddingTransport" value="taxi" />
+                <input
+                  type="radio"
+                  name="weddingTransport"
+                  value="taxi"
+                />
                 With a taxi / driver
               </label>
             </fieldset>
@@ -188,11 +247,19 @@ export default function RSVP() {
             <fieldset>
               <legend>How do you plan to get to the brunch?</legend>
               <label className="rsvp-choice">
-                <input type="radio" name="brunchTransport" value="car" />
+                <input
+                  type="radio"
+                  name="brunchTransport"
+                  value="car"
+                />
                 With my own car
               </label>
               <label className="rsvp-choice">
-                <input type="radio" name="brunchTransport" value="taxi" />
+                <input
+                  type="radio"
+                  name="brunchTransport"
+                  value="taxi"
+                />
                 With a taxi / driver
               </label>
             </fieldset>
