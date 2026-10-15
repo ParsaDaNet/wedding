@@ -3,6 +3,8 @@ import Navbar from "../NavBar";
 import venueImage from "../../images/VenueBirdseye.jpg";
 import airportImage from "../../images/niceAirport.jpg";
 import trainImage from "../../images/trainstaions.jpg";
+import carImage from "../../images/french-riviera-road.jpg"
+import taxiImage from "../../images/frenchTaxi.jpg"
 
 import "./GettingThere.css";
 
@@ -33,7 +35,7 @@ const journeys = [
     subtitle: "Explore at your own pace",
     description:
       "Hiring a car gives you the freedom to explore the beautiful towns and coastline of the French Riviera during your stay.",
-    image: "/images/french-riviera-road.jpg",
+    image: carImage,
     link: "https://www.nice.aeroport.fr/en/services/car-rental",
     linkText: "Explore car rental",
   },
@@ -43,7 +45,7 @@ const journeys = [
     subtitle: "Arrive comfortably",
     description:
       "We recommend arranging your journey to and from the venue in advance, particularly for the end of the wedding celebrations.",
-    image: "/images/french-riviera-taxi.jpg",
+    image: taxiImage,
     link: "https://www.taxis-nice.fr/en/home/",
     linkText: "Taxi Nice Riviera",
   },
@@ -122,7 +124,6 @@ export default function GettingThere() {
                     fill
                     sizes="(max-width: 700px) 100vw, 50vw"
                   />
-                  <span>{journey.number}</span>
                 </div>
 
                 <div className="getting-there__card-content">

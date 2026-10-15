@@ -127,7 +127,7 @@ export default function WeddingWeekend() {
           </span>
           <h2>Please confirm your presence</h2>
           <p>Kindly RSVP before May 22nd, 2027.</p>
-          <a className="weekend-rsvp__button" href="#rsvp">
+          <a className="weekend-rsvp__button" href="/rsvp">
             Confirm your presence
           </a>
         </footer>

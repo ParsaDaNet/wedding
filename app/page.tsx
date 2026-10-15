@@ -11,7 +11,7 @@ export default function HomePage() {
           alt="Yasaman and Medhy"
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 882px) 100vw, 850px"
           className="home__hero-image"
         />
       </section>
