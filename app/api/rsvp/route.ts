@@ -1,59 +1,105 @@
-import { NextResponse } from 'next/server';
-import { google } from 'googleapis';
-import { assert } from 'superstruct';
-import { RsvpStruct } from '../../components/schema';
-import { Guest } from '../../components/types';
+import { createClient } from "@supabase/supabase-js";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  const url = process.env.SUPABASE_URL;
+  const secret = process.env.SUPABASE_SECRET_KEY;
+
+  if (!url || !secret) {
+    console.error("Supabase environment variables are missing.");
+
+    return NextResponse.json(
+      { error: "The RSVP service is not configured." },
+      { status: 500 }
+    );
+  }
+
   try {
     const body = await request.json();
 
-    // 1. Superstruct runtime validation (throws an explicit error if payload structures mismatch)
-    try {
-        assert(body, RsvpStruct);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (validationError: any) {
-      return NextResponse.json({ message: 'Validation failed', errors: validationError.message }, { status: 400 });
+    const {
+      attendance,
+      firstName,
+      lastName,
+      email,
+      hasGuest,
+      guestName,
+      childrenCount,
+      childrenDetails,
+      events,
+      dietaryRequirements,
+      alcohol,
+      weddingTransport,
+      brunchTransport,
+      songSuggestion,
+      message,
+    } = body;
+
+    if (
+      !["accept", "decline"].includes(attendance) ||
+      typeof firstName !== "string" ||
+      !firstName.trim() ||
+      typeof lastName !== "string" ||
+      !lastName.trim() ||
+      typeof email !== "string" ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      typeof hasGuest !== "boolean" ||
+      !Number.isInteger(childrenCount) ||
+      childrenCount < 0 ||
+      !Array.isArray(events) ||
+      !events.every(
+        (event) => typeof event === "string" &&
+          ["wedding", "brunch"].includes(event)
+      ) ||
+      !["yes", "no"].includes(alcohol) ||
+      (weddingTransport != null &&
+        !["car", "taxi"].includes(weddingTransport)) ||
+      (brunchTransport != null &&
+        !["car", "taxi"].includes(brunchTransport))
+    ) {
+      return NextResponse.json(
+        { error: "Please check your RSVP details and try again." },
+        { status: 400 }
+      );
     }
 
-    const { partyName, guests, songRequest, messageForCouple } = body;
+    const supabase = createClient(url, secret);
 
-    // const ALLOWED_CODES = ['FOREVER2027', 'SMITHWEDDING', 'LOVEALWAYS']; 
-    // if (!ALLOWED_CODES.includes(invitationCode.trim().toUpperCase())) {
-    //   return NextResponse.json({ message: 'Incorrect Invitation Code.' }, { status: 401 });
-    // }
-
-    // 2. Stream layout to Google sheets credentials array
-    const auth = new google.auth.JWT({
-      email: process.env.GOOGLE_CLIENT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-      scopes: ['https://googleapis.com'],
+    const { error } = await supabase.from("rsvps").insert({
+      attendance,
+      first_name: firstName.trim(),
+      last_name: lastName.trim(),
+      email: email.trim(),
+      has_guest: hasGuest,
+      guest_name: guestName || null,
+      children_count: childrenCount,
+      children_details: childrenDetails || null,
+      events,
+      dietary_requirements: dietaryRequirements || null,
+      alcohol,
+      wedding_transport: weddingTransport || null,
+      brunch_transport: brunchTransport || null,
+      song_suggestion: songSuggestion || null,
+      message: message || null,
     });
 
-    const sheets = google.sheets({ version: 'v4', auth });
-    const timestamp = new Date().toLocaleString('en-GB');
+    if (error) {
+      console.error("RSVP database insert failed:", error.message);
 
-    const rowsToAppend = guests.map((guest: Guest) => [
-      timestamp,
-    //   invitationCode.toUpperCase(),
-      partyName,
-      guest.name,
-      guest.attendance,
-      songRequest || '',
-      messageForCouple || ''
-    ]);
+      return NextResponse.json(
+        { error: "We couldn't save your RSVP. Please try again." },
+        { status: 500 }
+      );
+    }
 
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-      range: 'Sheet1!A:G',
-      valueInputOption: 'USER_ENTERED',
-      requestBody: { values: rowsToAppend },
-    });
-
-    return NextResponse.json({ message: 'RSVP appended completely!' }, { status: 200 });
-
-  } catch (error) {
-    console.error('Google Serverless Error:', error);
-    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { message: "Your RSVP has been saved successfully." },
+      { status: 201 }
+    );
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid request. Please try again." },
+      { status: 400 }
+    );
   }
 }

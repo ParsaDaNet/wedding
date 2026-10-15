@@ -27,16 +27,66 @@ export default function RSVP() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => setCountdown(getCountdown()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // Connect a backend or form service to save real responses.
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const formData = new FormData(event.currentTarget);
+
+    const responseData = {
+      attendance: formData.get("attendance"),
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      hasGuest: formData.has("hasGuest"),
+      guestName: formData.get("guestName"),
+      childrenCount: Number(formData.get("childrenCount")),
+      childrenDetails: formData.get("childrenDetails"),
+      events: formData.getAll("events").map(String),
+      dietaryRequirements: formData.get("dietaryRequirements"),
+      alcohol: formData.get("alcohol"),
+      weddingTransport: formData.get("weddingTransport"),
+      brunchTransport: formData.get("brunchTransport"),
+      songSuggestion: formData.get("songSuggestion"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(responseData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error || "Unable to save your RSVP. Please try again."
+        );
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -83,8 +133,8 @@ export default function RSVP() {
           <div className="rsvp-success" role="status">
             <h3>Thank you!</h3>
             <p>
-              This is a preview confirmation only. Your response has not been
-              saved or sent.
+              Your RSVP has been saved successfully. We look forward to
+              celebrating with you!
             </p>
             <button
               type="button"
@@ -278,8 +328,18 @@ export default function RSVP() {
               Fields marked * are required. Please reply by May 22, 2027.
             </p>
 
-            <button type="submit" className="rsvp-button">
-              Register now
+            {submitError && (
+              <p className="rsvp-form__error" role="alert">
+                {submitError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="rsvp-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Register now"}
             </button>
           </form>
         )}
