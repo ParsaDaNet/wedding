@@ -1,0 +1,410 @@
+/* Base styles */
+
+.where-to-stay {
+    --wts-bg: #faf8f3;
+    --wts-paper: #fffdf9;
+    --wts-text: #403b34;
+    --wts-muted: #81776a;
+    --wts-accent: #a58b69;
+    --wts-border: #e6ded2;
+
+    color: var(--wts-text);
+    background: var(--wts-bg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.where-to-stay * {
+    box-sizing: border-box;
+}
+
+.where-to-stay h1,
+.where-to-stay h2,
+.where-to-stay h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.where-to-stay p,
+.where-to-stay a {
+    font-family: "Montserrat", sans-serif;
+}
+
+.where-to-stay__eyebrow {
+    color: var(--wts-accent);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+/* Hero */
+
+.where-to-stay__hero {
+    position: relative;
+    display: grid;
+    height: 90vh;
+    min-height: 600px;
+    max-height: 1000px;
+    overflow: hidden;
+    place-items: center;
+    background: #e9e1d5;
+}
+
+.where-to-stay__hero-image {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    object-position: center 85%;
+    z-index: 0;
+}
+
+.where-to-stay__hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background: rgb(35 30 25 / 35%);
+    color: #fff;
+    text-align: center;
+}
+
+.where-to-stay__hero-overlay .where-to-stay__eyebrow {
+    color: #f2e4d0;
+}
+
+.where-to-stay__hero h1 {
+    margin: 20px 0;
+    font-size: clamp(58px, 9vw, 100px);
+}
+
+.where-to-stay__line {
+    width: 48px;
+    height: 1px;
+    background: #e8d4b8;
+}
+
+.where-to-stay__hero-overlay p {
+    margin: 18px 0 0;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Introduction */
+
+.where-to-stay__intro {
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 88px 24px 80px;
+    text-align: center;
+}
+
+.where-to-stay__intro h2,
+.where-to-stay__heading h2,
+.where-to-stay__advice h2,
+.where-to-stay__closing h2 {
+    margin: 18px 0 24px;
+    font-size: clamp(38px, 5vw, 56px);
+}
+
+.where-to-stay__intro p {
+    max-width: 680px;
+    margin: 0 auto 16px;
+    color: var(--wts-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.where-to-stay__intro .where-to-stay__date {
+    margin-top: 28px;
+    color: var(--wts-text);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Accommodation sections */
+
+.where-to-stay__section {
+    padding: 76px 32px 96px;
+    background: var(--wts-paper);
+}
+
+.where-to-stay__section--airport {
+    background: var(--wts-bg);
+}
+
+.where-to-stay__section-heading {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.where-to-stay__section-heading h2 {
+    margin: 18px 0 20px;
+    font-size: clamp(38px, 5vw, 56px);
+}
+
+.where-to-stay__section-heading>p:not(.where-to-stay__eyebrow) {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--wts-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Hotel grid */
+
+.where-to-stay__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* Hotel cards */
+
+.where-to-stay__card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid var(--wts-border);
+    background: var(--wts-bg);
+    transition: border-color 0.2s ease;
+}
+
+.where-to-stay__card:hover {
+    border-color: var(--wts-accent);
+}
+
+.where-to-stay__card-image {
+    position: relative;
+    width: calc(100% + 60px);
+    height: 240px;
+    flex-shrink: 0;
+    margin: -30px -30px 24px;
+    overflow: hidden;
+    background: #e9e1d5;
+}
+
+.where-to-stay__card-image img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.where-to-stay__card:hover .where-to-stay__card-image img {
+    transform: scale(1.035);
+}
+
+.where-to-stay__card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.where-to-stay__category {
+    margin: 0 0 8px;
+    color: var(--wts-accent);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.where-to-stay__card h3,
+.where-to-stay__hotel-name {
+    margin: 8px 0;
+    font-size: clamp(27px, 3vw, 34px);
+}
+
+.where-to-stay__stars {
+    margin: 0 0 8px;
+    color: var(--wts-accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.where-to-stay__location {
+    margin: 0 0 14px;
+    color: var(--wts-accent);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.where-to-stay__address {
+    min-height: 50px;
+    margin: 0 0 22px;
+    color: var(--wts-muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Travel time details */
+
+.where-to-stay__travel-times {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: auto;
+    padding: 18px 0;
+    border-top: 1px solid var(--wts-border);
+    border-bottom: 1px solid var(--wts-border);
+}
+
+.where-to-stay__travel-times p {
+    margin: 0;
+    color: var(--wts-muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.where-to-stay__travel-times strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--wts-text);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Hotel links */
+
+.where-to-stay__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding-top: 22px;
+}
+
+.where-to-stay__links a {
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--wts-accent);
+    color: var(--wts-text);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.where-to-stay__links a:hover {
+    color: var(--wts-accent);
+}
+
+/* Closing section */
+
+.where-to-stay__footer {
+    padding: 76px 24px;
+    border-top: 1px solid var(--wts-border);
+    text-align: center;
+}
+
+.where-to-stay__footer h2 {
+    margin: 0 0 20px;
+    font-size: clamp(36px, 5vw, 52px);
+}
+
+.where-to-stay__footer p {
+    max-width: 560px;
+    margin: 0 auto 14px;
+    color: var(--wts-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Responsive layout */
+
+@media (max-width: 800px) {
+    .where-to-stay__section {
+        padding: 64px 24px 72px;
+    }
+
+    .where-to-stay__grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
+
+    .where-to-stay__card {
+        padding: 26px;
+    }
+
+    .where-to-stay__card-image {
+        width: calc(100% + 52px);
+        margin: -26px -26px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .where-to-stay__hero {
+        height: 60vh;
+        min-height: 420px;
+    }
+
+    .where-to-stay__hero h1 {
+        font-size: 58px;
+    }
+
+    .where-to-stay__intro {
+        padding: 64px 24px;
+    }
+
+    .where-to-stay__section-heading {
+        margin-bottom: 36px;
+    }
+
+    .where-to-stay__section {
+        padding: 56px 18px 64px;
+    }
+
+    .where-to-stay__card {
+        padding: 22px;
+    }
+
+    .where-to-stay__card-image {
+        width: calc(100% + 44px);
+        height: 220px;
+        margin: -22px -22px 20px;
+    }
+
+    .where-to-stay__card h3,
+    .where-to-stay__hotel-name {
+        font-size: 30px;
+    }
+
+    .where-to-stay__travel-times {
+        gap: 12px;
+    }
+
+    .where-to-stay__links {
+        gap: 12px 18px;
+    }
+
+    .where-to-stay__footer {
+        padding: 60px 24px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .where-to-stay__card,
+    .where-to-stay__card-image img,
+    .where-to-stay__links a {
+        transition: none;
+    }
+}

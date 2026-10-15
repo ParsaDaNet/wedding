@@ -1,0 +1,374 @@
+/* Base styles */
+
+.rsvp-page {
+    --rsvp-bg: #faf8f3;
+    --rsvp-text: #403b34;
+    --rsvp-muted: #81776a;
+    --rsvp-accent: #a58b69;
+    --rsvp-border: #e6ded2;
+
+    --font-body: "Montserrat", sans-serif;
+    --font-heading: var(--font-serif, "Cormorant Garamond"), Georgia, serif;
+
+    --text-xs: 10px;
+    --text-sm: 12px;
+    --text-base: 14px;
+    --heading-sm: 36px;
+    --heading-md: clamp(40px, 6vw, 48px);
+    --heading-lg: clamp(48px, 5vw, 76px);
+
+    color: var(--rsvp-text);
+    background: var(--rsvp-bg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.7;
+}
+
+.rsvp-page *,
+.rsvp-page *::before,
+.rsvp-page *::after {
+    box-sizing: border-box;
+}
+
+.rsvp-page p,
+.rsvp-page label,
+.rsvp-page input,
+.rsvp-page textarea,
+.rsvp-page button,
+.rsvp-page a,
+.rsvp-page select {
+    font-family: var(--font-body);
+}
+
+.rsvp-eyebrow {
+    color: var(--rsvp-accent);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.rsvp-hero h1,
+.rsvp-form-section h2,
+.rsvp-footer h2,
+.rsvp-success h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Split hero: text left, image right */
+
+.rsvp-hero {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: calc(100svh - 80px);
+    background: var(--rsvp-bg);
+    overflow: hidden;
+}
+
+.rsvp-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 64px);
+    text-align: center;
+}
+
+.rsvp-hero__content h1 {
+    margin: 0 0 32px;
+    font-family: var(--font-calligraphy, cursive);
+    font-size: clamp(48px, 5.2vw, 78px);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.rsvp-hero__countdown {
+    margin: 0 0 32px;
+    color: var(--rsvp-muted);
+    font-size: var(--text-sm);
+    letter-spacing: 2px;
+}
+
+.rsvp-hero__deadline {
+    max-width: 300px;
+    margin: 24px 0 0;
+    color: var(--rsvp-muted);
+    font-family: var(--font-heading);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.rsvp-hero__image-wrap {
+    position: relative;
+    min-width: 0;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.rsvp-hero__image {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Buttons */
+
+.rsvp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 36px;
+    border: 1px solid var(--rsvp-accent);
+    background: var(--rsvp-accent);
+    color: #fff;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.rsvp-button:hover {
+    background: transparent;
+    color: var(--rsvp-accent);
+}
+
+.rsvp-button:focus-visible {
+    outline: 2px solid var(--rsvp-accent);
+    outline-offset: 3px;
+}
+
+/* RSVP form section */
+
+.rsvp-form-section {
+    padding: 80px 24px 100px;
+    border-top: 1px solid var(--rsvp-border);
+    background: #fffdf9;
+}
+
+.rsvp-form-section__header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.rsvp-form-section h2 {
+    margin: 16px 0;
+    font-size: var(--heading-md);
+}
+
+.rsvp-form-section__header>p {
+    color: var(--rsvp-muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* Form layout */
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.rsvp-form__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.rsvp-form>label:not(.rsvp-choice) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Text inputs and textareas */
+
+.rsvp-form input:not([type="radio"]):not([type="checkbox"]),
+.rsvp-form select,
+.rsvp-form textarea {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    border: 1px solid var(--rsvp-border);
+    border-radius: 0;
+    background: var(--rsvp-bg);
+    color: var(--rsvp-text);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+.rsvp-form textarea {
+    resize: vertical;
+}
+
+.rsvp-form input:focus-visible,
+.rsvp-form select:focus-visible,
+.rsvp-form textarea:focus-visible,
+.rsvp-form .rsvp-choice input:focus-visible {
+    outline: 2px solid var(--rsvp-accent);
+    outline-offset: 3px;
+}
+
+/* Radio and checkbox groups */
+
+.rsvp-form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    margin: 0;
+    padding: 22px;
+    border: 1px solid var(--rsvp-border);
+}
+
+.rsvp-form legend {
+    max-width: 100%;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.rsvp-form .rsvp-choice {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--rsvp-muted);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.rsvp-form .rsvp-choice input {
+    flex: 0 0 auto;
+    margin: 4px 0 0;
+    accent-color: var(--rsvp-accent);
+}
+
+.rsvp-form .rsvp-choice input[type="radio"],
+.rsvp-form .rsvp-choice input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.rsvp-form__guest {
+    padding: 16px;
+    border: 1px solid var(--rsvp-border);
+}
+
+/* Submit button and form note */
+
+.rsvp-form__note {
+    margin: 0;
+    color: var(--rsvp-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.rsvp-form>.rsvp-button {
+    align-self: flex-start;
+}
+
+/* Confirmation preview */
+
+.rsvp-success {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rsvp-success h3 {
+    font-size: var(--heading-sm);
+}
+
+.rsvp-success p {
+    margin-bottom: 28px;
+    color: var(--rsvp-muted);
+    font-size: var(--text-sm);
+    line-height: 1.9;
+}
+
+/* Footer */
+
+.rsvp-footer {
+    padding: 64px 24px;
+    text-align: center;
+}
+
+.rsvp-footer h2 {
+    margin: 16px 0;
+    font-size: var(--heading-sm);
+}
+
+.rsvp-footer p {
+    color: var(--rsvp-muted);
+    font-size: var(--text-sm);
+    line-height: 1.9;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+    .rsvp-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .rsvp-hero__content {
+        min-height: 400px;
+        padding: 48px 24px;
+    }
+
+    .rsvp-hero__content h1 {
+        font-size: clamp(48px, 12vw, 68px);
+    }
+
+    .rsvp-hero__image-wrap {
+        min-height: 55svh;
+    }
+}
+
+@media (max-width: 600px) {
+    .rsvp-form-section {
+        padding: 60px 20px;
+    }
+
+    .rsvp-form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .rsvp-form fieldset {
+        padding: 18px;
+    }
+
+    .rsvp-form>.rsvp-button {
+        align-self: stretch;
+    }
+
+    .rsvp-footer {
+        padding: 56px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rsvp-button {
+        transition: none;
+    }
+}

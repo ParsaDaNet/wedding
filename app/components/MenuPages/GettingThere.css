@@ -1,0 +1,441 @@
+/* Base styles */
+
+.getting-there {
+    --gt-bg: #faf8f3;
+    --gt-paper: #fffdf9;
+    --gt-text: #403b34;
+    --gt-muted: #81776a;
+    --gt-accent: #a58b69;
+    --gt-border: #e6ded2;
+
+    color: var(--gt-text);
+    background: var(--gt-bg);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.getting-there * {
+    box-sizing: border-box;
+}
+
+.getting-there h1,
+.getting-there h2,
+.getting-there h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.getting-there p,
+.getting-there a {
+    font-family: "Montserrat", sans-serif;
+}
+
+.getting-there__eyebrow {
+    color: var(--gt-accent);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+/* Hero */
+
+.getting-there__hero {
+    position: relative;
+    display: grid;
+    min-height: 540px;
+    height: 70vh;
+    max-height: 850px;
+    overflow: hidden;
+    place-items: center;
+    background: #e9e1d5;
+}
+
+.getting-there__hero-image {
+    object-fit: cover;
+    object-position: center 65%;
+}
+
+.getting-there__hero-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px 24px;
+    background: rgb(35 30 25 / 30%);
+    color: #fff;
+    text-align: center;
+}
+
+.getting-there__hero-overlay .getting-there__eyebrow {
+    color: #f2e4d0;
+}
+
+.getting-there__hero h1 {
+    margin: 20px 0;
+    font-size: clamp(58px, 9vw, 100px);
+}
+
+.getting-there__hero-line {
+    width: 48px;
+    height: 1px;
+    background: #e8d4b8;
+}
+
+.getting-there__hero-overlay p {
+    margin: 18px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Introduction */
+
+.getting-there__intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 88px 24px 76px;
+    text-align: center;
+}
+
+.getting-there__intro h2,
+.getting-there__section-heading h2,
+.getting-there__notice h2 {
+    margin: 18px 0;
+    font-size: clamp(40px, 5vw, 56px);
+}
+
+.getting-there__intro p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--gt-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.getting-there__intro .getting-there__date {
+    margin-top: 24px;
+    color: var(--gt-text);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Journey cards */
+
+.getting-there__journeys {
+    padding: 72px 32px 96px;
+    background: var(--gt-paper);
+}
+
+.getting-there__section-heading {
+    max-width: 680px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.getting-there__section-heading h2 {
+    margin-bottom: 20px;
+}
+
+.getting-there__section-heading>p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--gt-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.getting-there__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px 36px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.getting-there__card {
+    min-width: 0;
+}
+
+.getting-there__card-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background: #e9e1d5;
+}
+
+.getting-there__card-image img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.getting-there__card:hover .getting-there__card-image img {
+    transform: scale(1.035);
+}
+
+.getting-there__card-image>span {
+    position: absolute;
+    z-index: 1;
+    top: 16px;
+    left: 16px;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 70%);
+    color: #fff;
+    background: rgb(50 44 37 / 25%);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.getting-there__card-content {
+    padding: 24px 4px 0;
+}
+
+.getting-there__card-subtitle {
+    color: var(--gt-accent);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.getting-there__card-content h3 {
+    margin: 8px 0 12px;
+    font-size: 36px;
+}
+
+.getting-there__card-content p {
+    max-width: 440px;
+    margin: 0;
+    color: var(--gt-muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.getting-there__text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--gt-accent);
+    color: var(--gt-text);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.getting-there__text-link:hover {
+    color: var(--gt-accent);
+}
+
+/* Travel advice */
+
+.getting-there__notice {
+    padding: 88px 24px;
+    background: #f0ebe2;
+    text-align: center;
+}
+
+.getting-there__notice-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.getting-there__notice h2 {
+    margin-bottom: 24px;
+}
+
+.getting-there__notice p {
+    margin: 12px 0;
+    color: var(--gt-muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.getting-there__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: 24px;
+    padding: 14px 26px;
+    border: 1px solid var(--gt-accent);
+    color: var(--gt-text);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.getting-there__button:hover {
+    background: var(--gt-accent);
+    color: #fff;
+}
+
+/* Taxi directory */
+
+.getting-there__taxi-section {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 72px 24px;
+}
+
+.getting-there__taxi-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1000px;
+    margin: 32px auto 0;
+    border-top: 1px solid var(--gt-border);
+}
+
+.getting-there__taxi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--gt-border);
+    font-size: 12px;
+}
+
+.getting-there__taxi:nth-child(odd) {
+    border-right: 1px solid var(--gt-border);
+}
+
+.getting-there__taxi>span {
+    min-width: 0;
+    color: var(--gt-text);
+}
+
+.getting-there__taxi a {
+    flex-shrink: 0;
+    color: var(--gt-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.getting-there__taxi a:hover {
+    color: var(--gt-accent);
+}
+
+.getting-there__disclaimer {
+    margin-top: 20px;
+    color: var(--gt-muted);
+    font-size: 11px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Footer */
+
+.getting-there__footer {
+    padding: 64px 24px;
+    border-top: 1px solid var(--gt-border);
+    text-align: center;
+}
+
+.getting-there__footer h2 {
+    margin: 16px 0;
+    font-size: 40px;
+}
+
+.getting-there__footer p {
+    margin: 4px 0;
+    color: var(--gt-muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+    .getting-there__hero {
+        height: 60vh;
+        min-height: 420px;
+    }
+
+    .getting-there__hero h1 {
+        font-size: 58px;
+    }
+
+    .getting-there__intro {
+        padding: 64px 24px;
+    }
+
+    .getting-there__journeys {
+        padding: 60px 20px 72px;
+    }
+
+    .getting-there__section-heading {
+        margin-bottom: 36px;
+    }
+
+    .getting-there__grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .getting-there__card-image {
+        height: clamp(210px, 65vw, 320px);
+    }
+
+    .getting-there__notice {
+        padding: 64px 24px;
+    }
+
+    .getting-there__taxi-section {
+        padding: 64px 20px;
+    }
+
+    .getting-there__taxi-list {
+        grid-template-columns: 1fr;
+    }
+
+    .getting-there__taxi:nth-child(odd) {
+        border-right: none;
+    }
+
+    .getting-there__taxi {
+        gap: 12px;
+        padding: 14px 4px;
+        font-size: 12px;
+    }
+
+    .getting-there__taxi a {
+        font-size: 12px;
+    }
+
+    .getting-there__footer {
+        padding: 52px 20px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .getting-there__card-image img,
+    .getting-there__button {
+        transition: none;
+    }
+
+    .getting-there__card:hover .getting-there__card-image img {
+        transform: none;
+    }
+}

@@ -66,7 +66,7 @@
 
 .weekend-eyebrow {
     color: var(--weekend-accent);
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 3px;
     line-height: 1.8;
@@ -96,7 +96,7 @@
     max-width: 420px;
     margin: 12px 0 0;
     color: var(--weekend-muted);
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.9;
 }
 
@@ -153,6 +153,7 @@
 .weekend-event__content {
     min-width: 0;
     padding: 20px 0;
+    text-size: 60px;
 }
 
 .weekend-event__content h2 {
@@ -167,7 +168,7 @@
 
 .weekend-event__date p {
     margin: 5px 0;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.3px;
     line-height: 1.8;
 }
@@ -204,7 +205,7 @@
 .weekend-event__details p {
     margin: 0 0 12px;
     color: var(--weekend-muted);
-    font-size: 12px;
+    font-size: 17px;
     line-height: 2;
 }
 
@@ -215,14 +216,16 @@
     margin: 24px 0 0;
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 22px;
+    font-weight: bold;
 }
 
 .weekend-event__dresscode span {
     color: var(--weekend-accent);
     font-family: "Montserrat", sans-serif;
-    font-size: 9px;
+    font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 /* RSVP footer */
@@ -243,7 +246,7 @@
 .weekend-rsvp>p {
     margin: 4px 0 26px;
     color: var(--weekend-muted);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.8;
 }
 
@@ -315,7 +318,7 @@
 
     .weekend-hero>p {
         max-width: 300px;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .weekend-events {

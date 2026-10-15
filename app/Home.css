@@ -1,0 +1,48 @@
+.home {
+    width: 100%;
+    height: calc(100svh - 80px);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #faf8f3;
+    box-sizing: border-box;
+    font-size: 80px;
+}
+
+.home__hero {
+    position: relative;
+    width: min(100%, 850px);
+    height: 100%;
+    overflow: hidden;
+    background: #faf8f3;
+}
+
+.home__hero-image {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Soft fade around the image edges */
+.home__hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center,
+            transparent 55%,
+            rgba(250, 248, 243, 0.3) 78%,
+            #faf8f3 100%);
+}
+
+@media (max-width: 768px) {
+    .home {
+        height: calc(100svh - 70px);
+        padding: 0.5rem;
+    }
+
+    .home__hero {
+        width: 100%;
+    }
+}

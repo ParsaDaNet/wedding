@@ -36,15 +36,13 @@ const events = [
       "https://static.wixstatic.com/media/39d620_cbea3f1a90624fa89d06679f5631d874~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/1eee61_f2d42aa3a87b4d149487571562563989~mv2.jpg",
     imageAlt: "Outdoor wedding brunch",
     details: ["Swimsuit and towel highly recommended."],
-    dressCode: "Summer outfit",
+    // dressCode: "Summer outfit",
   },
 ];
 
 export default function WeddingWeekend() {
   return (
     <>
-      <Navbar />
-
       <main className="weekend-page" id="wedding-weekend">
         <section className="weekend-venue-hero">
           <Image
@@ -91,7 +89,7 @@ export default function WeddingWeekend() {
 
                 <div className="weekend-event__date">
                   <p>{event.date}</p>
-                  <p>{event.time}</p>
+                  <p>{event.title}</p>
                 </div>
 
                 <div className="weekend-event__venue">
@@ -112,10 +110,12 @@ export default function WeddingWeekend() {
                   ))}
                 </div>
 
+                {event.dressCode && ( 
                 <p className="weekend-event__dresscode">
                   <span>Dress code</span>
                   {event.dressCode}
-                </p>
+                  </p>
+                )}
               </div>
             </section>
           ))}
