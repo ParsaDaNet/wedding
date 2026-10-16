@@ -2,6 +2,8 @@ import Image from "next/image";
 import Navbar from "../NavBar";
 import "./WeddingWeekend.css";
 import venueImage from "../../images/VenueBirdseye.jpg";
+import alter from "../../images/alter.jpg"
+import brunch from "../../images/brunch.jpg"
 
 const venue = {
   name: "Domaine du Mont Leuze",
@@ -17,11 +19,10 @@ const events = [
     subtitle: "The main celebration",
     date: "Saturday, August 21st 2027",
     time: "From 4:30 p.m.",
-    image:
-      "https://static.wixstatic.com/media/39d620_27b40434db034a66933583a180c49e49~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/240704%20Levana%20%26%20Gary%20-%200546%20-%20Cedou.jpg",
+    image: alter,
     imageAlt: "Wedding celebration",
     details: [
-      "Please arrive by 4:00 p.m. for a ceremony beginning promptly at 5:15 p.m.",
+      "Please arrive by 4:00 p.m. for a ceremony beginning promptly at 5:00 p.m.",
       "The event will take place outdoors. We recommend bringing something warm for the evening.",
     ],
     dressCode: "Black tie",
@@ -32,8 +33,7 @@ const events = [
     subtitle: "The day after",
     date: "Sunday, August 22nd 2027",
     time: "11 a.m. – 3:30 p.m.",
-    image:
-      "https://static.wixstatic.com/media/39d620_cbea3f1a90624fa89d06679f5631d874~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/1eee61_f2d42aa3a87b4d149487571562563989~mv2.jpg",
+    image: brunch,
     imageAlt: "Outdoor wedding brunch",
     details: ["Swimsuit and towel highly recommended."],
     // dressCode: "Summer outfit",
