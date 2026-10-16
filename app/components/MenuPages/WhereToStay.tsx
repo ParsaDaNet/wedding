@@ -29,6 +29,7 @@ const hotelImages = {
 type Hotel = {
   name: string;
   stars: number;
+  priceScore: "£" | "££" | "£££";
   location: string;
   address: string;
   venueTime: string;
@@ -42,6 +43,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Carlton",
     stars: 4,
+    priceScore: "££",
     location: "Beaulieu-sur-Mer",
     address: "7 Avenue Edith Cavell, 06310 Beaulieu-sur-Mer, France",
     venueTime: "Approx. 15–20 min",
@@ -53,6 +55,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Delcloy",
     stars: 3,
+    priceScore: "££",
     location: "Saint-Jean-Cap-Ferrat",
     address: "3 Avenue Jean Monnet, 06230 Saint-Jean-Cap-Ferrat, France",
     venueTime: "Approx. 15–20 min",
@@ -64,6 +67,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Le Provençal",
     stars: 3,
+    priceScore: "££",
     location: "Villefranche-sur-Mer",
     address: "4 Avenue du Maréchal Joffre, 06230 Villefranche-sur-Mer, France",
     venueTime: "Approx. 15–20 min",
@@ -75,6 +79,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Le Saint Paul",
     stars: 5,
+    priceScore: "£££",
     location: "Nice",
     address: "29 Boulevard Franck Pilatte, 06300 Nice, France",
     venueTime: "Approx. 20–30 min",
@@ -86,6 +91,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Petit Palais",
     stars: 4,
+    priceScore: "££",
     location: "Nice",
     address: "17 Avenue Emile Bieckert, 06000 Nice, France",
     venueTime: "Approx. 25–35 min",
@@ -97,6 +103,7 @@ const nearbyHotels: Hotel[] = [
   {
     name: "Hôtel Apollinaire",
     stars: 4,
+    priceScore: "£££",
     location: "Nice",
     address: "25 Boulevard Dubouchage, 06000 Nice, France",
     venueTime: "Approx. 25–35 min",
@@ -111,6 +118,7 @@ const airportHotels: Hotel[] = [
   {
     name: "Novotel Suites Nice Airport",
     stars: 4,
+    priceScore: "££",
     location: "Nice Airport",
     address: "125 Boulevard René Cassin, 06200 Nice, France",
     venueTime: "Approx. 30–40 min",
@@ -122,6 +130,7 @@ const airportHotels: Hotel[] = [
   {
     name: "Radisson Hotel Nice Airport",
     stars: 4,
+    priceScore: "££",
     location: "Nice Airport",
     address: "24 Rue Costes et Bellonte, 06200 Nice, France",
     venueTime: "Approx. 30–40 min",
@@ -133,6 +142,7 @@ const airportHotels: Hotel[] = [
   {
     name: "Nemea Appart'Hotel",
     stars: 4,
+    priceScore: "£",
     location: "Nice Airport",
     address: "Nice, France",
     venueTime: "Approx. 30–40 min",
@@ -144,6 +154,7 @@ const airportHotels: Hotel[] = [
   {
     name: "OKKO Hotels Nice Aéroport",
     stars: 4,
+    priceScore: "££",
     location: "Nice Airport",
     address: "147 Boulevard René Cassin, 06200 Nice, France",
     venueTime: "Approx. 30–40 min",
@@ -172,6 +183,9 @@ const renderHotels = (hotels: Hotel[]) =>
         <p className="where-to-stay__stars">
           {"★".repeat(hotel.stars)}
           {"☆".repeat(5 - hotel.stars)}
+        </p>
+        <p className="where-to-stay__price">
+          {hotel.priceScore}
         </p>
         <p className="where-to-stay__location">{hotel.location}</p>
         <p className="where-to-stay__address">{hotel.address}</p>

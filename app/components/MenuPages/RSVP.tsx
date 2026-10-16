@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import Image from "next/image";
-import venueImage from "../../images/home/our-story.jpg";
+import venueImage from "../../images/ym2.jpeg";
 import "./RSVP.css";
 
 const weddingDate = new Date("2027-08-21T16:30:00");
@@ -101,7 +101,7 @@ export default function RSVP() {
             RSVP
           </a>
           <p className="rsvp-hero__deadline">
-            Your response is requested by May 22nd 2027 latest
+            Your response is requested by January 22nd 2027 latest
           </p>
         </div>
 
@@ -109,7 +109,6 @@ export default function RSVP() {
           <Image
             src={venueImage}
             alt="Yasaman and Medhy"
-            fill
             priority
             sizes="(max-width: 600px) 100vw, 55vw"
             className="rsvp-hero__image"

@@ -243,6 +243,14 @@
     letter-spacing: 2px;
 }
 
+.where-to-stay__price {
+    margin: 4px 0 12px;
+    color: #a58b69;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
 .where-to-stay__location {
     margin: 0 0 14px;
     color: var(--wts-accent);

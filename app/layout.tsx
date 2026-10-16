@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Alex_Brush, Cormorant_Garamond } from "next/font/google";
+import TranslateWidget from "./components/TranslatorWidget";
 import Navbar from "./components/NavBar";
 import "./globals.css";
 
@@ -16,7 +17,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Wedding RSVP",
+  title: "Yasaman & Medhy",
   description: "Kindly respond to our wedding invitation",
 };
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className="antialiased bg-gray-50">
         <Navbar />
         {children}
+        <TranslateWidget />
       </body>
     </html>
   );

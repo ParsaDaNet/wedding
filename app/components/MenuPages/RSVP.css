@@ -104,15 +104,22 @@
 }
 
 .rsvp-hero__image-wrap {
-    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     min-width: 0;
     min-height: 600px;
+    padding: 16px 12px 0;
     overflow: hidden;
 }
 
 .rsvp-hero__image {
-    object-fit: cover;
-    object-position: center;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 90svh;
+    object-fit: contain;
+    object-position: center bottom;
 }
 
 /* Buttons */
@@ -340,9 +347,16 @@
         font-size: clamp(48px, 12vw, 68px);
     }
 
-    .rsvp-hero__image-wrap {
-        min-height: 55svh;
-    }
+        .rsvp-hero__image-wrap {
+            min-height: auto;
+            padding: 12px 12px 0;
+        }
+    
+        .rsvp-hero__image {
+            width: 100%;
+            max-height: 75svh;
+            object-fit: contain;
+        }
 }
 
 @media (max-width: 600px) {

@@ -1,48 +1,257 @@
 .home {
     width: 100%;
-    height: calc(100svh - 80px);
+    min-height: calc(100svh - 80px);
     padding: 1rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: hidden;
     background: #faf8f3;
     box-sizing: border-box;
-    font-size: 80px;
+    color: #403b34;
 }
 
 .home__hero {
-    position: relative;
     width: min(100%, 850px);
-    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.home__invitation {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.home__eyebrow {
+    margin: 0 0 1rem;
+    color: #a58b69;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.home__invitation h1 {
+    margin: 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.home__invitation h1 span {
+    color: #a58b69;
+    font-style: italic;
+}
+
+.home__divider {
+    width: 45px;
+    height: 1px;
+    margin: 1.5rem 0;
+    background: #a58b69;
+}
+
+.home__invitation h2 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-great-vibes), cursive;
+    font-size: clamp(34px, 5vw, 46px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: #a58b69;
+}
+
+.home__welcome {
+    max-width: 360px;
+    margin: 0;
+    color: #81776a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.home__date {
+    margin: 1.5rem 0 0.75rem;
+    color: #a58b69;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.home__location {
+    margin: 0;
+    color: #81776a;
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+}
+
+/* RSVP button */
+
+.home__invitation .weekend-rsvp__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    margin-top: 1.5rem;
+    padding: 14px 28px;
+    border: 1px solid #a58b69;
+    color: #403b34;
+    background: transparent;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.home__invitation .weekend-rsvp__button:hover {
+    background: #a58b69;
+    color: #fff;
+}
+
+.home__photo {
+    position: relative;
+    width: 100%;
+    height: clamp(220px, 38vh, 360px);
+    flex-shrink: 0;
     overflow: hidden;
-    background: #faf8f3;
 }
 
 .home__hero-image {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 
-/* Soft fade around the image edges */
-.home__hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center,
-            transparent 55%,
-            rgba(250, 248, 243, 0.3) 78%,
-            #faf8f3 100%);
-}
+/* Mobile */
 
 @media (max-width: 768px) {
     .home {
+        min-height: calc(100svh - 70px);
         height: calc(100svh - 70px);
-        padding: 0.5rem;
+        padding: 0;
     }
 
     .home__hero {
         width: 100%;
+        min-height: 0;
+    }
+
+    .home__invitation {
+        min-height: 0;
+        padding: 1.5rem 1.25rem 1rem;
+    }
+
+    .home__eyebrow {
+        margin-bottom: 0.75rem;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .home__invitation h1 {
+        font-size: clamp(40px, 10vw, 56px);
+    }
+
+    .home__divider {
+        margin: 1rem 0;
+    }
+
+    .home__invitation h2 {
+        margin-bottom: 0.5rem;
+        font-size: 27px;
+    }
+
+    .home__welcome {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .home__date {
+        margin-top: 1rem;
+        font-size: 10px;
+    }
+
+    .home__location {
+        font-size: 8px;
+    }
+
+    .home__invitation .weekend-rsvp__button {
+        margin-top: 1rem;
+        padding: 12px 22px;
+        font-size: 9px;
+    }
+
+    .home__photo {
+        flex: 1;
+        min-height: 180px;
+        height: auto;
+        width: 100%;
+    }
+
+    .home__hero-image {
+        object-position: center 40%;
+    }
+}
+
+/* Desktop, laptop and landscape tablets */
+
+@media (min-width: 769px) {
+    .home {
+        height: calc(100svh - 80px);
+        min-height: 500px;
+        padding: 1.5rem 2rem;
+        overflow: hidden;
+    }
+
+    .home__hero {
+        width: min(100%, 1400px);
+        height: 100%;
+        min-height: 0;
+        flex-direction: row;
+        align-items: stretch;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .home__invitation {
+        flex: 1 1 45%;
+        min-width: 0;
+        padding: 1.5rem 1rem;
+        justify-content: center;
+    }
+
+    .home__invitation h1 {
+        font-size: clamp(40px, 4vw, 64px);
+    }
+
+    .home__invitation h2 {
+        font-size: clamp(34px, 4vw, 46px);
+    }
+
+    .home__welcome {
+        max-width: 340px;
+    }
+
+    .home__photo {
+        flex: 1 1 55%;
+        min-width: 0;
+        height: 100%;
+        min-height: 0;
+    }
+
+    .home__hero-image {
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .home__invitation .weekend-rsvp__button {
+        transition: none;
     }
 }

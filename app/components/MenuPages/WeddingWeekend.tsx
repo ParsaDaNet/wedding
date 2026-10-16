@@ -21,7 +21,7 @@ const events = [
       "https://static.wixstatic.com/media/39d620_27b40434db034a66933583a180c49e49~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/240704%20Levana%20%26%20Gary%20-%200546%20-%20Cedou.jpg",
     imageAlt: "Wedding celebration",
     details: [
-      "Please arrive by 4:30 p.m. for a ceremony beginning promptly at 5:15 p.m.",
+      "Please arrive by 4:00 p.m. for a ceremony beginning promptly at 5:15 p.m.",
       "The event will take place outdoors. We recommend bringing something warm for the evening.",
     ],
     dressCode: "Black tie",
@@ -31,7 +31,7 @@ const events = [
     title: "Brunch",
     subtitle: "The day after",
     date: "Sunday, August 22nd 2027",
-    time: "11 a.m. – 3 p.m.",
+    time: "11 a.m. – 3:30 p.m.",
     image:
       "https://static.wixstatic.com/media/39d620_cbea3f1a90624fa89d06679f5631d874~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/1eee61_f2d42aa3a87b4d149487571562563989~mv2.jpg",
     imageAlt: "Outdoor wedding brunch",
@@ -90,6 +90,7 @@ export default function WeddingWeekend() {
                 <div className="weekend-event__date">
                   <p>{event.date}</p>
                   <p>{event.title}</p>
+                  <p>{event.time}</p>
                 </div>
 
                 <div className="weekend-event__venue">
@@ -126,7 +127,7 @@ export default function WeddingWeekend() {
             We can&apos;t wait to celebrate
           </span>
           <h2>Please confirm your presence</h2>
-          <p>Kindly RSVP before May 22nd, 2027.</p>
+          <p>Kindly RSVP before January 22nd, 2027.</p>
           <a className="weekend-rsvp__button" href="/rsvp">
             Confirm your presence
           </a>
