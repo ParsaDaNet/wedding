@@ -22,7 +22,7 @@ const events = [
     image: alter,
     imageAlt: "Wedding celebration",
     details: [
-      "Please arrive by 4:00 p.m. for a ceremony beginning promptly at 5:00 p.m.",
+      "Please arrive by 4:30 p.m. for a ceremony beginning promptly at 5:00 p.m.",
       "The event will take place outdoors. We recommend bringing something warm for the evening.",
     ],
     dressCode: "Black tie",
