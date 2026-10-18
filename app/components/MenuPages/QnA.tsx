@@ -5,46 +5,6 @@ import "./QnA.css";
 const questions = [
   {
     number: "01",
-    question: "Passport/visa",
-    answer: (
-      <>
-        <p><strong>From USA</strong></p>
-        <p>
-          You don&apos;t need a visa to travel to France from the United States
-          for a stay of less than 90 days. However, your passport must be valid
-          for at least three months beyond your scheduled departure date from
-          the Schengen Area. 12-page U.S. emergency passports are not accepted
-          for visa-free travel.
-        </p>
-
-        <p><strong>From Iran</strong></p>
-        <p>
-          Iranian citizens holding a mainland passport need a short-stay
-          Schengen visa to visit France for a holiday or private stay of less
-          than 90 days. You must apply in advance through the official
-          France-Visas portal or an authorised visa application centre.
-        </p>
-        <p>
-          <strong>Timeframes to observe:</strong> Apply no earlier than
-          6 months and no later than 15 days before departure.
-        </p>
-
-        <p><strong>From Algeria</strong></p>
-        <p>
-          Algerian citizens holding a mainland passport need a short-stay
-          Schengen visa to visit France for a holiday or private stay of less
-          than 90 days. You must apply in advance through the official
-          France-Visas portal or an authorised visa application centre.
-        </p>
-        <p>
-          <strong>Timeframes to observe:</strong> Submit the application at
-          least 1 to 2 months before departure.
-        </p>
-      </>
-    ),
-  },
-  {
-    number: "02",
     question: "Weather & dress code",
     answer: (
       <>
@@ -55,23 +15,12 @@ const questions = [
         </ul>
 
         <p><strong>Wedding attire: Black tie</strong></p>
-        <p>For men: To be confirmed.</p>
-        <p>For women: To be confirmed.</p>
-        <p>We recommend ladies bring an additional layer for the evening.</p>
 
-        <p><strong>Brunch attire: Summer outfit</strong></p>
-        <p>For men: To be confirmed.</p>
-        <p>For women: To be confirmed.</p>
-
-        <p>
-          A hat, sun cream, sunglasses and mosquito repellent are useful
-          accessories to bring for the wedding events on Saturday and Sunday.
-        </p>
       </>
     ),
   },
   {
-    number: "03",
+    number: "02",
     question: "What is the best way to RSVP?",
     answer: (
       <p>
@@ -82,11 +31,11 @@ const questions = [
     ),
   },
   {
-    number: "04",
+    number: "03",
     question: "What is the deadline to RSVP?",
     answer: (
       <p>
-        Please confirm your presence at our wedding by May 22nd, 2027 at the
+        Please confirm your presence at our wedding by January 22nd, 2027 at the
         latest.
       </p>
     ),

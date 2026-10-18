@@ -32,7 +32,7 @@ const events = [
     title: "Brunch",
     subtitle: "The day after",
     date: "Sunday, August 22nd 2027",
-    time: "11 a.m. – 3:30 p.m.",
+    time: "11 a.m. – 4:00 p.m.",
     image: brunch,
     imageAlt: "Outdoor wedding brunch",
     details: ["Swimsuit and towel highly recommended."],
