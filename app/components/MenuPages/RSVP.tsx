@@ -317,7 +317,7 @@ export default function RSVP() {
             </label>
 
             <p className="rsvp-form__note">
-              Fields marked * are required. Please reply by May 22, 2027.
+              Fields marked * are required. Please reply by January 22nd, 2027.
             </p>
 
             {submitError && (
