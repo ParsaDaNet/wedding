@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "../NavBar";
 import venueImage from "../../images/VenueBirdseye.jpg";
 import airportImage from "../../images/niceAirport.jpg";
 import trainImage from "../../images/trainstaions.jpg";

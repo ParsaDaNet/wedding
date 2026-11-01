@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "../NavBar";
 import heroImage from "../../images/where-to-stay/ville-franche-hero.jpg";
 import carltonImage from "../../images/where-to-stay/hotel-carlton.jpg";
 import delcloyImage from "../../images/where-to-stay/hotel-delcloy.jpg"

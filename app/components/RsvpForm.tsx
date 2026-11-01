@@ -44,7 +44,6 @@ export const RsvpForm = () => {
   const { fields, append, remove } = useFieldArray({ control, name: "guests" });
 
     const onSubmit = async (data: RsvpFormValues) => {
-      console.log("hiiiiii")
     setIsSubmitting(true);
     setApiError(null);
     try {

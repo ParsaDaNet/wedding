@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "../NavBar";
 import "./WeddingWeekend.css";
 import venueImage from "../../images/VenueBirdseye.jpg";
 import alter from "../../images/alter.jpg"
